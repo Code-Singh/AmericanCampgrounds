@@ -6,6 +6,7 @@ const port = 3000;
 const Campground = require('./models/campground');
 const methodOveride = require('method-override')
 const { urlencoded } = require('express');
+const ejsMate = require('ejs-mate');
 
 
 mongoose.connect('mongodb://localhost:27017/american-campgrounds', 
@@ -19,6 +20,7 @@ db.once("open", () => {
     console.log('Database Connected')
 });
 
+app.engine('ejs', ejsMate) // use ejsmate instead of default ejs engine
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
