@@ -42,8 +42,8 @@ const validateCampground = (req, res, next) => {
     }
 }
 
-const validateReview = (req,res,next) =>{
-    const {error} = reviewSchema.validate(req.body);
+const validateReview = (req, res, next) => {
+    const { error } = reviewSchema.validate(req.body);
     if (error) {
         const msg = error.details.map(el => el.message).join(',')
         throw new ExpressError(msg, 400)
@@ -89,11 +89,11 @@ app.put('/campgrounds/:id', validateCampground, catchAsync ( async(req,res) => {
     res.redirect(`/campgrounds/${campground._id}`)
 }))
 
-app.delete('/campgrounds/:id', catchAsync ( async (req,res) =>{
-    const {id} = req.params;
+app.delete('/campgrounds/:id', catchAsync(async (req, res) => {
+    const { id } = req.params;
     await Campground.findByIdAndDelete(id);
     res.redirect('/campgrounds');
-}))
+}));
 
 app.post('/campgrounds/:id/reviews', validateReview, catchAsync(async(req,res)=>{
     const campground = await Campground.findById(req.params.id);
@@ -107,7 +107,7 @@ app.post('/campgrounds/:id/reviews', validateReview, catchAsync(async(req,res)=>
 app.delete('/campgrounds/:id/reviews/:reviewId', catchAsync(async (req, res) => {
     const { id, reviewId } = req.params;
     //remove review refrence in Campground
-    await Campground.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
+    await campground.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
     await Review.findByIdAndDelete(reviewId);
     res.redirect(`/campgrounds/${id}`);
 }))

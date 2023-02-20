@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { campgroundSchema } = require('../schemas');
 const Schema = mongoose.Schema; //shortcut 
 mongoose.set('strictQuery', true);
-
+const Review = require('./review')
 
 const CampgroundSchema = new Schema({
     title: String,
@@ -21,7 +21,7 @@ const CampgroundSchema = new Schema({
 //For deleting matching reviews
 CampgroundSchema.post('findOneAndDelete', async function (doc) {
     if (doc) {
-        await Review.delteMany({
+        await Review.deleteMany({
             _id: {
                 $in: doc.reviews
             }
