@@ -1,4 +1,7 @@
 # American Campgrounds
+
 Express Mongoose EJS Ejs-Mate Morgan 
+
 Styled with Bootstrap 5
-Joi for Error Handling / Validation
+
+Joi for Validation
