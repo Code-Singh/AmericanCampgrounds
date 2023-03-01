@@ -8,6 +8,7 @@ const catchAsync = require('../utils/catchAsync')
 const {reviewSchema}  = require('../schemas')
 const Campground = require('../models/campground');
 const Review = require('../models/review')
+const { isLoggedIn } = require('../middleware');
 
 const validateReview = (req, res, next) => {
     const { error } = reviewSchema.validate(req.body);
