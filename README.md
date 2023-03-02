@@ -1,4 +1,4 @@
-# American Campgrounds
+# Location of RV campgrounds
 
 Express Mongoose EJS Ejs-Mate Morgan 
 
