@@ -17,7 +17,7 @@ const campgroundRoutes = require('./routes/campgrounds')
 const reviewRoutes = require('./routes/reviews')
 const userRoutes = require('./routes/users')
 
-mongoose.connect('mongodb://localhost:27017/american-campgrounds', 
+mongoose.connect('mongodb://localhost:27017/rv-campgrounds', 
     {useNewUrlParser: true, 
     useUnifiedTopology: true //mongoose deprecation errors
 });

@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Campground = require('../models/campground');
 
 
-mongoose.connect('mongodb://localhost:27017/american-campgrounds', 
+mongoose.connect('mongodb://localhost:27017/rv-campgrounds', 
     {useNewUrlParser: true, 
     useUnifiedTopology: true
 });
