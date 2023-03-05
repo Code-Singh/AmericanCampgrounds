@@ -10,7 +10,11 @@ router.route('/register')
 
 router.route('/login')
     .get(users.renderLogin)
-    .post(passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), users.login)
+    .post(passport.authenticate('local', 
+    { failureFlash: true, 
+    failureRedirect: '/login',
+    keepSessionInfo: true //need this to keep current page value
+}), users.login)
 
 router.get('/logout', users.logout)
 
