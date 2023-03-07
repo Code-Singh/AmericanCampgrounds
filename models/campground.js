@@ -9,6 +9,11 @@ const ImageSchema = new Schema({
     filename: String
 });
 
+ImageSchema.virtual('thumbnail').get(function () {
+    return this.url.replace('/upload', '/upload/w_200');
+});
+//Cloudinary transformation API for thumbnails for edit page
+
 const CampgroundSchema = new Schema({
     title: String,
     images: [ImageSchema],

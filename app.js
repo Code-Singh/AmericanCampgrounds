@@ -16,6 +16,12 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local')
 const User = require('./models/user')
 
+const bodyParser = require('body-parser')
+app.use(
+    bodyParser.urlencoded({
+      extended: true,
+    })
+  );
 
 const campgroundRoutes = require('./routes/campgrounds')
 const reviewRoutes = require('./routes/reviews')
@@ -52,6 +58,7 @@ const sessionConfig = {
 }
 app.use(session(sessionConfig))
 app.use(flash());
+
 
 app.use(passport.initialize());//use this after app.use (session)
 app.use(passport.session());

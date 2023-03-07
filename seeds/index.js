@@ -26,9 +26,30 @@ const seedDB = async () => {
             author: '6401688e30870cbcd8760d82', //random user, password default account
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
-            image: 'https://source.unsplash.com/collection/483251',
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            price: price
+            price: price,
+            images: [
+                {
+                  url: 'https://res.cloudinary.com/dj28cdmvu/image/upload/v1678001386/RV-Campgrounds/xzeps1mej5a0im7iz2eo.jpg',
+                  filename: 'RV-Campgrounds/xzeps1mej5a0im7iz2eo'
+                
+                },
+                {
+                  url: 'https://res.cloudinary.com/dj28cdmvu/image/upload/v1678001386/RV-Campgrounds/eyqajamluj9d4icibcgt.jpg',
+                  filename: 'RV-Campgrounds/eyqajamluj9d4icibcgt'
+                  
+                },
+                {
+                  url: 'https://res.cloudinary.com/dj28cdmvu/image/upload/v1678001386/RV-Campgrounds/nvdqyqam7qmq6eo7czqm.jpg',
+                  filename: 'RV-Campgrounds/nvdqyqam7qmq6eo7czqm'
+                 
+                },
+                {
+                  url: 'https://res.cloudinary.com/dj28cdmvu/image/upload/v1678001386/RV-Campgrounds/nsqodenkoe653rlbgl3x.jpg',
+                  filename: 'RV-Campgrounds/nsqodenkoe653rlbgl3x'
+                  
+                }
+              ]
         })
         await camp.save();
     }
