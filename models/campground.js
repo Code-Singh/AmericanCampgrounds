@@ -14,6 +14,10 @@ ImageSchema.virtual('thumbnail').get(function () {
 });
 //Cloudinary transformation API for thumbnails for edit page
 
+
+const opts = { toJSON: { virtuals: true } };
+
+
 const CampgroundSchema = new Schema({
     title: String,
     images: [ImageSchema],
@@ -41,7 +45,17 @@ const CampgroundSchema = new Schema({
             ref: 'Review' // Refers to the Review model
         }
     ]
+}, opts);
+
+
+//Cluster Map link to camp
+CampgroundSchema.virtual('properties.popUpMarkup').get(function () {
+    return `
+    <strong><a href="/campgrounds/${this._id}">${this.title}</a><strong>
+    <p>${this.description.substring(0, 50)}...</p>`
 });
+
+
 
 //For deleting matching reviews
 CampgroundSchema.post('findOneAndDelete', async function (doc) {
