@@ -23,32 +23,37 @@ const seedDB = async () => {
         const price = Math.floor(Math.random () * 20) + 10;
         const random1000 = Math.floor(Math.random() * 1000);
         const camp = new Campground({
+
+          //RANDOM USER ID
             author: '6401688e30870cbcd8760d82', //random user, password default account
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             price: price,
+            geometry: {
+              type: "Point",
+              coordinates: [
+                  cities[random1000].longitude,
+                  cities[random1000].latitude,
+              ]
+          },
             images: [
                 {
-                  url: 'https://res.cloudinary.com/dj28cdmvu/image/upload/v1678001386/RV-Campgrounds/xzeps1mej5a0im7iz2eo.jpg',
-                  filename: 'RV-Campgrounds/xzeps1mej5a0im7iz2eo'
-                
-                },
-                {
-                  url: 'https://res.cloudinary.com/dj28cdmvu/image/upload/v1678001386/RV-Campgrounds/eyqajamluj9d4icibcgt.jpg',
-                  filename: 'RV-Campgrounds/eyqajamluj9d4icibcgt'
-                  
-                },
-                {
-                  url: 'https://res.cloudinary.com/dj28cdmvu/image/upload/v1678001386/RV-Campgrounds/nvdqyqam7qmq6eo7czqm.jpg',
-                  filename: 'RV-Campgrounds/nvdqyqam7qmq6eo7czqm'
+                  url: 'https://res.cloudinary.com/dj28cdmvu/image/upload/v1677996050/RV-Campgrounds/vndxju3hxf44jzxtaulq.jpg',
+                  filename: 'RV-Campgrounds/vndxju3hxf44jzxtaulq'
                  
                 },
                 {
-                  url: 'https://res.cloudinary.com/dj28cdmvu/image/upload/v1678001386/RV-Campgrounds/nsqodenkoe653rlbgl3x.jpg',
-                  filename: 'RV-Campgrounds/nsqodenkoe653rlbgl3x'
+                  url: 'https://res.cloudinary.com/dj28cdmvu/image/upload/v1678238256/RV-Campgrounds/lumdeqyft2xgwusnqj07.jpg',
+                  filename: 'RV-Campgrounds/lumdeqyft2xgwusnqj07'
+                
+                },
+                {
+                  url: 'https://res.cloudinary.com/dj28cdmvu/image/upload/v1678235837/RV-Campgrounds/x1mryz9mzjbh8akf1aub.jpg',
+                  filename: 'RV-Campgrounds/x1mryz9mzjbh8akf1aub'
                   
                 }
+        
               ]
         })
         await camp.save();
