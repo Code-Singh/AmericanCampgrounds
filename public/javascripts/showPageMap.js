@@ -16,3 +16,5 @@ new mapboxgl.Marker() //setting pin
             )
     )
     .addTo(map)
+
+    map.addControl(new mapboxgl.NavigationControl())
