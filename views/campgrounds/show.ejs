@@ -28,14 +28,6 @@
                   <span class="visually-hidden">Next</span>
                 </button><% } %>
               </div>
-
-              
-
-
-
-
-
-
             <div class="card mb-3">
                 
                 <div class="card-body">
@@ -66,14 +58,9 @@
         const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
         const campground = <%- JSON.stringify(campground) %>
     </script>
-
-
       <div class="col-6">
 
         <div id='map'></div>
-
-
-
         <% if(currentUser) { %>
         <h2>Leave a Review</h2>
         <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
@@ -126,6 +113,3 @@
     </div>
   
   <script src="/javascripts/showPageMap.js"></script>
-
-
-
