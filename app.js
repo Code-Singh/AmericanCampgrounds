@@ -6,7 +6,6 @@ const express = require('express');
 const app = express();
 const path = require('path')
 const mongoose = require('mongoose');
-const port = 3000;
 const methodOveride = require('method-override')
 const ejsMate = require('ejs-mate');
 const ExpressError = require('./utils/ExpressError')
@@ -31,7 +30,8 @@ const campgroundRoutes = require('./routes/campgrounds')
 const reviewRoutes = require('./routes/reviews')
 const userRoutes = require('./routes/users')
 
-const dbUrl =  process.env.DB_URL;
+const dbUrl =  process.env.DB_URL || 'mongodb://localhost:27017/rv-campgrounds';;
+
 mongoose.connect(dbUrl, 
     {useNewUrlParser: true, 
     useUnifiedTopology: true //mongoose deprecation errors
@@ -52,10 +52,10 @@ app.use(methodOveride('_method'))
 app.use(express.static(path.join(__dirname,'public')))
 app.use(mongoSanitize())
 
-const secret = process.env.SECRET;
+const secret = process.env.SECRET || 'secret!';;
 
-const store = MongoDBStore.create({  // change this line
-	mongoUrl: dbUrl,  // change this line
+const store = MongoDBStore.create({  
+	mongoUrl: dbUrl,  
 	secret,
 	touchAfter: 24 * 60 * 60,
 });
@@ -169,8 +169,11 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 }) 
 
+
+const port = process.env.PORT || 3000;
+
 app.listen(port, ()=> {
-    console.log('Serving on Port 3000')
+    console.log(`Serving on Port: ${port}`)
 })
 
 

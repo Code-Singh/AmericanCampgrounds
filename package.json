@@ -1,22 +1,23 @@
 {
-  "name": "americancampgrounds",
+  "name": "rvcampgrounds",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Code-Singh/AmericanCampgrounds.git"
+    "url": "git+https://github.com/Code-Singh/RV-Campgrounds.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Code-Singh/AmericanCampgrounds/issues"
+    "url": "https://github.com/Code-Singh/RV-Campgrounds/issues"
   },
-  "homepage": "https://github.com/Code-Singh/AmericanCampgrounds#readme",
+  "homepage": "https://github.com/Code-Singh/RV-Campgrounds#readme",
   "dependencies": {
     "@mapbox/mapbox-sdk": "^0.15.0",
     "cloudinary": "^1.35.0",
