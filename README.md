@@ -55,7 +55,7 @@ Try it: https://rvcampgrounds.herokuapp.com/
 
    ```
    git clone https://github.com/Code-Singh/RV-Campgrounds
-   cd YelpCamp
+   cd RV-Campgrounds
    npm install 
    ```
 
