@@ -18,6 +18,7 @@ const User = require('./models/user')
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
 
+const MongoDBStore = require("connect-mongo");
 
 const bodyParser = require('body-parser')
 app.use(
@@ -30,7 +31,8 @@ const campgroundRoutes = require('./routes/campgrounds')
 const reviewRoutes = require('./routes/reviews')
 const userRoutes = require('./routes/users')
 
-mongoose.connect('mongodb://localhost:27017/rv-campgrounds', 
+const dbUrl =  process.env.DB_URL;
+mongoose.connect(dbUrl, 
     {useNewUrlParser: true, 
     useUnifiedTopology: true //mongoose deprecation errors
 });
@@ -50,14 +52,27 @@ app.use(methodOveride('_method'))
 app.use(express.static(path.join(__dirname,'public')))
 app.use(mongoSanitize())
 
+const secret = process.env.SECRET;
+
+const store = MongoDBStore.create({  // change this line
+	mongoUrl: dbUrl,  // change this line
+	secret,
+	touchAfter: 24 * 60 * 60,
+});
+
+store.on("error", function (e) {
+    console.log("SESSION STORE ERROR", e)
+})
+
 const sessionConfig = {
+    store,
     name: 'session',
-    secret: 'SECRET',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
-       //for https secure: true, 
+        secure: true, 
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
@@ -93,10 +108,12 @@ const connectSrcUrls = [
     "https://b.tiles.mapbox.com/",
     "https://events.mapbox.com/",
 ];
-const fontSrcUrls = [];
+const fontSrcUrls = [
+    "https://fonts.gstatic.com/",
+    "https://kit.fontawesome.com/"];
 
 app.use(helmet.crossOriginEmbedderPolicy({ policy: "credentialless" }));
-
+//disable to fix Helmet v4 image bug 
 
 app.use(
     helmet.contentSecurityPolicy({
