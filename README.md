@@ -79,4 +79,4 @@ Try it: https://rvcampgrounds.herokuapp.com/
 
 ## Credits
 
-This app is the capstone project of Colt Steele's course: [The Web Developer Bootcamp 2023](https://www.udemy.com/course/the-web-developer-bootcamp/). 
+This app is the capstone project of Colt Steele's Udemy course: [The Web Developer Bootcamp 2023](https://www.udemy.com/course/the-web-developer-bootcamp/). 
