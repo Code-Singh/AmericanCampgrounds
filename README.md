@@ -22,6 +22,10 @@ Try it: https://rvcampgrounds.herokuapp.com/
 
 ![create and edit campgrounds](images/edit.png)
 
+### User Registration
+
+![user](images/user.png)
+
 ## Implementation
 
 ### Languages
