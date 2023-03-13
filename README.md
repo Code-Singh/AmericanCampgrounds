@@ -16,7 +16,7 @@ Try it: https://rvcampgrounds.herokuapp.com/
 
 ### Campground details and its reviews
 
-![campground details](images/campground-details.jpg)
+![campground details](images/show.png)
 
 ### Making new campground and editing previous posts (authentication required)
 
