@@ -10,9 +10,9 @@ Try it: https://rvcampgrounds.herokuapp.com/
 
 ![homepage](images/RV-Campgrounds.png)
 
-### Index page of campgrounds with a ClusterMap
+### Index page of all campgrounds 
 
-![campground index page](images/index-page.jpg)
+![campground index page](images/allcamps.png)
 
 ### Campground details and its reviews
 
