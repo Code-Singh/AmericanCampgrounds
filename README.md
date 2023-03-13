@@ -3,6 +3,7 @@
 RV Campgrounds is a Yelp style website for campgrounds, where people can share campsites with photos and comment on others. This app supports user authentication, posts management (creating, editing, and deleting), image uploading, and responsive design, etc. 
 
 Try it: https://rvcampgrounds.herokuapp.com/
+Default Log-in: user / password
 
 ## Features
 
