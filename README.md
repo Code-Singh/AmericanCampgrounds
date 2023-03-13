@@ -18,9 +18,9 @@ Try it: https://rvcampgrounds.herokuapp.com/
 
 ![campground details](images/show.png)
 
-### Making new campground and editing previous posts (authentication required)
+### Edit campground with Authentication required!
 
-![create and edit campgrounds](images/create-and-edit.jpg)
+![create and edit campgrounds](images/edit.png)
 
 ## Implementation
 
