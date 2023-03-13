@@ -6,9 +6,9 @@ Try it: https://rvcampgrounds.herokuapp.com/
 
 ## Features
 
-### Responsive design
+### Home Page
 
-![homepage](images/homepage.jpg)
+![homepage](images/RV-Campgrounds.png)
 
 ### Index page of campgrounds with a ClusterMap
 
